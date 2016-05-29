@@ -8,7 +8,7 @@
     "watch-app": "chokidar-socket-emitter --path src/app --port 5776",
     "watch-renderer": "chokidar-socket-emitter --path src/renderer --port 5777",
     "watch-common": "chokidar-socket-emitter --path src/common --port 5778",
-    "clean": "rm -rf jspm_packages node_modules typings"
+    "clean": "rm -rf jspm_packages node_modules typings *.log"
   },
   "author": "",
   "license": "ISC",
