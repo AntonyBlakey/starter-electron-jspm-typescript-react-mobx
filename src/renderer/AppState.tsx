@@ -21,7 +21,8 @@ function deserializeState(s) {
 // Hot Reloading Support
 
 import HotReloader from "systemjs-hot-reloader";
-let hotReloader = new HotReloader('http://localhost:5776');
+let hrRenderer = new HotReloader('http://localhost:5777');
+let hrCommon = new HotReloader('http://localhost:5778');
 export function __reload(m) {
     deserializeState(serializeState(m.appState));
 }

@@ -4,8 +4,10 @@
   "main": "src/app/bootstrap.js",
   "scripts": {
     "postinstall": "jspm install && typings install",
-    "start": "electron .",
-    "watch": "chokidar-socket-emitter",
+    "start": "concurrently --kill-others 'electron .' 'npm run watch-app' 'npm run watch-renderer' 'npm run watch-common'",
+    "watch-app": "chokidar-socket-emitter --path src/app --port 5776",
+    "watch-renderer": "chokidar-socket-emitter --path src/renderer --port 5777",
+    "watch-common": "chokidar-socket-emitter --path src/common --port 5778",
     "clean": "rm -rf jspm_packages node_modules typings"
   },
   "author": "",
@@ -71,6 +73,7 @@
   },
   "devDependencies": {
     "chokidar-socket-emitter": "^0.5.2",
+    "concurrently": "^2.1.0",
     "electron-prebuilt": "^1.2.0",
     "jspm": "^0.17.0-beta.16",
     "typings": "^1.0.4"
