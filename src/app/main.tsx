@@ -40,31 +40,23 @@ app.on('activate', () => {
   }
 });
 
-function serializeState(s) {
-    return s;
-}
-
-function deserialiseState(s) {
-    win = s;
-}
-
 // Hot Reloading Support
 
-// Not working yet - socket.io problems.
-// import HotReloader from "systemjs-hot-reloader";
-// let hrApp = new HotReloader('http://localhost:5776');
-// let hrCommon = new HotReloader('http://localhost:5778');
-// export function __reload(m) {
-//     deserializeState(serializeState(m.win));
-// }
+import HotReloader from "systemjs-hot-reloader";
+export let hotReloader 
 
-export function initialize(dirname) {
-    // This method will be called when Electron has finished
-    // initialization and is ready to create browser windows.
-    // Some APIs can only be used after this event occurs.
+export function __reload(m) {
+    console.log("Main Process Reloaded");
+    hotReloader = m.hotReloader
+    win = m.win;
+}
+
+export function initialize(dirname, socket) {
     if (app.isReady()) {
         createWindow(dirname);
     } else {
         app.on('ready', () => { createWindow(diname) });
     }
+
+    hotReloader = new HotReloader(socket);
 }

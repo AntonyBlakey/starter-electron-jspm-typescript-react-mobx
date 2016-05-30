@@ -9,20 +9,11 @@ export const appState = new AppState();
 
 setInterval(() => appState.timer += 1, 1000);
 
-function serializeState(s) {
-    return { timer: s.timer };
-}
-
-function deserializeState(s) {
-    appState.timer = s.timer;
-}
-
-
 // Hot Reloading Support
 
-import HotReloader from "systemjs-hot-reloader";
-let hrRenderer = new HotReloader('http://localhost:5777');
-let hrCommon = new HotReloader('http://localhost:5778');
+import socketIO from 'socket.io-client';
+import HotReloader from 'systemjs-hot-reloader';
+let hotReloader = new HotReloader(socketIO('http://localhost:5776'));
 export function __reload(m) {
-    deserializeState(serializeState(m.appState));
+    appState.timer = m.appState.timer;
 }

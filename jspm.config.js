@@ -1,20 +1,18 @@
 SystemJS.config({
   paths: {
     "github:": "jspm_packages/github/",
-    "npm:": "jspm_packages/npm/"
+    "npm:": "jspm_packages/npm/",
+    "local:": "jspm_packages/local/"
   },
-    production: false,
-    trace: true,
+  production: false,
+  trace: true,
   browserConfig: {
     "baseURL": "../.."
   },
   devConfig: {
     "map": {
       "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.16",
-      "os": "github:jspm/nodelibs-os@0.2.0-alpha",
-      "systemjs-hot-reloader": "github:capaj/systemjs-hot-reloader@0.5.9",
-      "net": "github:jspm/nodelibs-net@0.2.0-alpha",
-      "tty": "github:jspm/nodelibs-tty@0.2.0-alpha"
+      "os": "github:jspm/nodelibs-os@0.2.0-alpha"
     },
     "packages": {
       "github:frankwallis/plugin-typescript@4.0.16": {
@@ -25,18 +23,6 @@ SystemJS.config({
       "github:jspm/nodelibs-os@0.2.0-alpha": {
         "map": {
           "os-browserify": "npm:os-browserify@0.2.1"
-        }
-      },
-      "github:capaj/systemjs-hot-reloader@0.5.9": {
-        "map": {
-          "debug": "npm:debug@2.2.0",
-          "weakee": "npm:weakee@1.0.0",
-          "socket.io-client": "github:socketio/socket.io-client@1.4.6"
-        }
-      },
-      "npm:debug@2.2.0": {
-        "map": {
-          "ms": "npm:ms@0.7.1"
         }
       }
     }
@@ -59,7 +45,8 @@ SystemJS.config({
   packageConfigPaths: [
     "github:*/*.json",
     "npm:@*/*.json",
-    "npm:*.json"
+    "npm:*.json",
+    "local:*.json"
   ],
   map: {
     "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
@@ -72,12 +59,17 @@ SystemJS.config({
     "https": "github:jspm/nodelibs-https@0.2.0-alpha",
     "mobx": "npm:mobx@2.2.2",
     "mobx-react": "npm:mobx-react@3.3.0",
+    "net": "github:jspm/nodelibs-net@0.2.0-alpha",
     "path": "github:jspm/nodelibs-path@0.2.0-alpha",
     "process": "github:jspm/nodelibs-process@0.2.0-alpha",
     "react": "npm:react@15.1.0",
     "react-dom": "npm:react-dom@15.1.0",
+    "socket.io-client": "github:socketio/socket.io-client@1.4.6",
     "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
     "string_decoder": "github:jspm/nodelibs-string_decoder@0.2.0-alpha",
+    "systemjs-hot-reloader": "github:AntonyBlakey/systemjs-hot-reloader@0.6.0",
+    "systemjs-hot-reloader.git": "github:AntonyBlakey/systemjs-hot-reloader@0.6.0",
+    "tty": "github:jspm/nodelibs-tty@0.2.0-alpha",
     "url": "github:jspm/nodelibs-url@0.2.0-alpha",
     "util": "github:jspm/nodelibs-util@0.2.0-alpha",
     "zlib": "github:jspm/nodelibs-zlib@0.2.0-alpha"
@@ -206,6 +198,23 @@ SystemJS.config({
       "map": {
         "punycode": "npm:punycode@1.3.2",
         "querystring": "npm:querystring@0.2.0"
+      }
+    },
+    "github:AntonyBlakey/systemjs-hot-reloader@0.6.0": {
+      "map": {
+        "weakee": "npm:weakee@1.0.0",
+        "debug": "npm:debug@2.2.0",
+        "systemjs": "npm:systemjs@0.19.29"
+      }
+    },
+    "npm:debug@2.2.0": {
+      "map": {
+        "ms": "npm:ms@0.7.1"
+      }
+    },
+    "npm:systemjs@0.19.29": {
+      "map": {
+        "when": "npm:when@3.7.7"
       }
     }
   }
