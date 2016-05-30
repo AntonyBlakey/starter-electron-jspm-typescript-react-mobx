@@ -15,8 +15,7 @@
       "mobx-react": "npm:mobx-react@^3.3.0",
       "react-dom": "npm:react-dom@^15.1.0",
       "socket.io-client": "github:socketio/socket.io-client@^1.4.6",
-      "systemjs-hot-reloader": "github:AntonyBlakey/systemjs-hot-reloader@^0.6.0",
-      "systemjs-hot-reloader.git": "github:AntonyBlakey/systemjs-hot-reloader@^0.6.0"
+      "systemjs-hot-reloader": "github:AntonyBlakey/systemjs-hot-reloader@^0.6.0"
     },
     "devDependencies": {
       "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
